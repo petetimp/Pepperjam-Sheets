@@ -1,0 +1,440 @@
+Pepper JSON
+array(2) {
+  ["meta"]=>
+  array(3) {
+    ["status"]=>
+    array(2) {
+      ["code"]=>
+      int(200)
+      ["message"]=>
+      string(2) "OK"
+    }
+    ["pagination"]=>
+    array(2) {
+      ["total_results"]=>
+      int(4)
+      ["total_pages"]=>
+      int(1)
+    }
+    ["requests"]=>
+    array(2) {
+      ["current"]=>
+      int(2)
+      ["maximum"]=>
+      int(1500)
+    }
+  }
+  ["data"]=>
+  array(4) {
+    [0]=>
+    array(12) {
+      ["transaction_id"]=>
+      string(8) "79989281"
+      ["creative_id"]=>
+      string(1) "0"
+      ["order_id"]=>
+      string(7) "1888105"
+      ["sale_date"]=>
+      string(19) "2017-12-23 00:12:24"
+      ["publisher_id"]=>
+      string(6) "158429"
+      ["status"]=>
+      string(7) "Pending"
+      ["link_type"]=>
+      string(6) "Manual"
+      ["new_to_file"]=>
+      string(3) "Yes"
+      ["sale_amount"]=>
+      string(6) "$30.00"
+      ["commission"]=>
+      string(6) "$30.90"
+      ["publisher"]=>
+      string(11) "William Ash"
+      ["company"]=>
+      string(16) "Today's Business"
+    }
+    [1]=>
+    array(12) {
+      ["transaction_id"]=>
+      string(8) "79990035"
+      ["creative_id"]=>
+      string(5) "11572"
+      ["order_id"]=>
+      string(6) "175438"
+      ["sale_date"]=>
+      string(19) "2017-12-23 00:55:46"
+      ["publisher_id"]=>
+      string(6) "123247"
+      ["status"]=>
+      string(7) "Pending"
+      ["link_type"]=>
+      string(7) "Generic"
+      ["new_to_file"]=>
+      string(3) "Yes"
+      ["sale_amount"]=>
+      string(6) "$21.79"
+      ["commission"]=>
+      string(6) "$30.65"
+      ["publisher"]=>
+      string(14) "John Szendiuch"
+      ["company"]=>
+      string(5) "Honey"
+    }
+    [2]=>
+    array(12) {
+      ["transaction_id"]=>
+      string(8) "79991516"
+      ["creative_id"]=>
+      string(1) "0"
+      ["order_id"]=>
+      string(7) "1888146"
+      ["sale_date"]=>
+      string(19) "2017-12-23 03:23:38"
+      ["publisher_id"]=>
+      string(6) "158429"
+      ["status"]=>
+      string(7) "Pending"
+      ["link_type"]=>
+      string(6) "Manual"
+      ["new_to_file"]=>
+      string(3) "Yes"
+      ["sale_amount"]=>
+      string(6) "$30.00"
+      ["commission"]=>
+      string(6) "$30.90"
+      ["publisher"]=>
+      string(11) "William Ash"
+      ["company"]=>
+      string(16) "Today's Business"
+    }
+    [3]=>
+    array(12) {
+      ["transaction_id"]=>
+      string(8) "79991939"
+      ["creative_id"]=>
+      string(6) "301500"
+      ["order_id"]=>
+      string(7) "1888155"
+      ["sale_date"]=>
+      string(19) "2017-12-23 05:00:03"
+      ["publisher_id"]=>
+      string(6) "106383"
+      ["status"]=>
+      string(7) "Pending"
+      ["link_type"]=>
+      string(4) "Text"
+      ["new_to_file"]=>
+      string(3) "Yes"
+      ["sale_amount"]=>
+      string(6) "$19.99"
+      ["commission"]=>
+      string(6) "$36.60"
+      ["publisher"]=>
+      string(11) "Liz Bensink"
+      ["company"]=>
+      string(17) "Lobster Times LLC"
+    }
+  }
+}
+Term JSON
+array(2) {
+  ["meta"]=>
+  array(3) {
+    ["status"]=>
+    array(2) {
+      ["code"]=>
+      int(200)
+      ["message"]=>
+      string(2) "OK"
+    }
+    ["pagination"]=>
+    array(2) {
+      ["total_results"]=>
+      int(3)
+      ["total_pages"]=>
+      int(1)
+    }
+    ["requests"]=>
+    array(2) {
+      ["current"]=>
+      int(3)
+      ["maximum"]=>
+      int(1500)
+    }
+  }
+  ["data"]=>
+  array(3) {
+    [0]=>
+    array(12) {
+      ["transparency"]=>
+      string(1) "5"
+      ["id"]=>
+      string(6) "123247"
+      ["first_name"]=>
+      string(4) "John"
+      ["last_name"]=>
+      string(9) "Szendiuch"
+      ["company"]=>
+      string(5) "Honey"
+      ["state"]=>
+      string(2) "CA"
+      ["country"]=>
+      string(2) "US"
+      ["website"]=>
+      string(24) "http://www.joinhoney.com"
+      ["status"]=>
+      string(6) "Joined"
+      ["term"]=>
+      array(1) {
+        [0]=>
+        array(2) {
+          ["id"]=>
+          string(5) "25193"
+          ["name"]=>
+          string(17) "Revised $30 Offer"
+        }
+      }
+      ["request_date"]=>
+      string(19) "2017-06-01 20:02:38"
+      ["join_date"]=>
+      string(19) "2017-06-15 02:02:14"
+    }
+    [1]=>
+    array(12) {
+      ["transparency"]=>
+      string(1) "2"
+      ["id"]=>
+      string(6) "106383"
+      ["first_name"]=>
+      string(3) "Liz"
+      ["last_name"]=>
+      string(7) "Bensink"
+      ["company"]=>
+      string(17) "Lobster Times LLC"
+      ["state"]=>
+      string(2) "PA"
+      ["country"]=>
+      string(2) "US"
+      ["website"]=>
+      string(38) "http://www.MySubscriptionAddiction.com"
+      ["status"]=>
+      string(6) "Joined"
+      ["term"]=>
+      array(1) {
+        [0]=>
+        array(2) {
+          ["id"]=>
+          string(5) "25267"
+          ["name"]=>
+          string(17) "Revised $36 Offer"
+        }
+      }
+      ["request_date"]=>
+      string(19) "2017-07-01 08:38:35"
+      ["join_date"]=>
+      string(19) "2017-07-02 09:47:19"
+    }
+    [2]=>
+    array(12) {
+      ["transparency"]=>
+      string(1) "2"
+      ["id"]=>
+      string(6) "158429"
+      ["first_name"]=>
+      string(7) "William"
+      ["last_name"]=>
+      string(3) "Ash"
+      ["company"]=>
+      string(16) "Today's Business"
+      ["state"]=>
+      string(2) "NJ"
+      ["country"]=>
+      string(2) "US"
+      ["website"]=>
+      string(21) "https://www.tbsmo.com"
+      ["status"]=>
+      string(6) "Joined"
+      ["term"]=>
+      array(1) {
+        [0]=>
+        array(2) {
+          ["id"]=>
+          string(5) "25193"
+          ["name"]=>
+          string(17) "Revised $30 Offer"
+        }
+      }
+      ["request_date"]=>
+      string(19) "2017-06-01 14:06:45"
+      ["join_date"]=>
+      string(19) "2017-06-01 17:10:37"
+    }
+  }
+}
+Id Array
+array(3) {
+  [123247]=>
+  string(17) "Revised $30 Offer"
+  [106383]=>
+  string(17) "Revised $36 Offer"
+  [158429]=>
+  string(17) "Revised $30 Offer"
+}
+Term Array
+array(4) {
+  [0]=>
+  array(2) {
+    ["id"]=>
+    string(6) "158429"
+    ["name"]=>
+    string(17) "Revised $30 Offer"
+  }
+  [1]=>
+  array(2) {
+    ["id"]=>
+    string(6) "123247"
+    ["name"]=>
+    string(17) "Revised $30 Offer"
+  }
+  [2]=>
+  array(2) {
+    ["id"]=>
+    string(6) "158429"
+    ["name"]=>
+    string(17) "Revised $30 Offer"
+  }
+  [3]=>
+  array(2) {
+    ["id"]=>
+    string(6) "106383"
+    ["name"]=>
+    string(17) "Revised $36 Offer"
+  }
+}
+Customer Array
+array(4) {
+  [0]=>
+  array(14) {
+    [0]=>
+    string(8) "79989281"
+    [1]=>
+    string(6) "158429"
+    [2]=>
+    string(11) "William Ash"
+    [3]=>
+    string(7) "1888105"
+    [4]=>
+    string(16) "Today's Business"
+    [5]=>
+    string(0) ""
+    [6]=>
+    string(17) "Revised $30 Offer"
+    [7]=>
+    string(6) "Manual"
+    [8]=>
+    string(0) ""
+    [9]=>
+    string(6) "$30.00"
+    [10]=>
+    string(6) "$30.90"
+    [11]=>
+    string(0) ""
+    [12]=>
+    string(19) "2017-12-23 00:12:24"
+    [13]=>
+    string(7) "Pending"
+  }
+  [1]=>
+  array(14) {
+    [0]=>
+    string(8) "79990035"
+    [1]=>
+    string(6) "123247"
+    [2]=>
+    string(14) "John Szendiuch"
+    [3]=>
+    string(6) "175438"
+    [4]=>
+    string(5) "Honey"
+    [5]=>
+    string(0) ""
+    [6]=>
+    string(17) "Revised $30 Offer"
+    [7]=>
+    string(7) "Generic"
+    [8]=>
+    string(0) ""
+    [9]=>
+    string(6) "$21.79"
+    [10]=>
+    string(6) "$30.65"
+    [11]=>
+    string(0) ""
+    [12]=>
+    string(19) "2017-12-23 00:55:46"
+    [13]=>
+    string(7) "Pending"
+  }
+  [2]=>
+  array(14) {
+    [0]=>
+    string(8) "79991516"
+    [1]=>
+    string(6) "158429"
+    [2]=>
+    string(11) "William Ash"
+    [3]=>
+    string(7) "1888146"
+    [4]=>
+    string(16) "Today's Business"
+    [5]=>
+    string(0) ""
+    [6]=>
+    string(17) "Revised $30 Offer"
+    [7]=>
+    string(6) "Manual"
+    [8]=>
+    string(0) ""
+    [9]=>
+    string(6) "$30.00"
+    [10]=>
+    string(6) "$30.90"
+    [11]=>
+    string(0) ""
+    [12]=>
+    string(19) "2017-12-23 03:23:38"
+    [13]=>
+    string(7) "Pending"
+  }
+  [3]=>
+  array(14) {
+    [0]=>
+    string(8) "79991939"
+    [1]=>
+    string(6) "106383"
+    [2]=>
+    string(11) "Liz Bensink"
+    [3]=>
+    string(7) "1888155"
+    [4]=>
+    string(17) "Lobster Times LLC"
+    [5]=>
+    string(0) ""
+    [6]=>
+    string(17) "Revised $36 Offer"
+    [7]=>
+    string(4) "Text"
+    [8]=>
+    string(0) ""
+    [9]=>
+    string(6) "$19.99"
+    [10]=>
+    string(6) "$36.60"
+    [11]=>
+    string(0) ""
+    [12]=>
+    string(19) "2017-12-23 05:00:03"
+    [13]=>
+    string(7) "Pending"
+  }
+}
