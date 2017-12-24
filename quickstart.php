@@ -7,11 +7,13 @@
 			$access_key="07cd2b0d64988aedf51c36dad99babf9760905a863caaf82b110048df3184294";
 		
 			//GET Transaction Details
-
+			//Enter start and end date in command line
 			if(isset($argv[2])){
 				$pepper_url ='https://api.pepperjamnetwork.com/20120402/advertiser/report/transaction-details/?apiKey=' . $access_key . '&format=JSON&startDate=' . $argv[1] . '&endDate=' . $argv[2];
+			//start and end date will be same date
 			}else if(isset($argv[1])){
 				$pepper_url ='https://api.pepperjamnetwork.com/20120402/advertiser/report/transaction-details/?apiKey=' . $access_key . '&format=JSON&startDate=' . $argv[1] . '&endDate=' . $argv[1];
+			//start and end date will be todays date
 			}else{
 				$pepper_url ='https://api.pepperjamnetwork.com/20120402/advertiser/report/transaction-details/?apiKey=' . $access_key . '&format=JSON&startDate=' . date('Y-m-d') . '&endDate=' . date('Y-m-d');
 			}
@@ -19,24 +21,28 @@
 			//var_dump($argv);
 
 			/*$pepper_url ='https://api.pepperjamnetwork.com/20120402/advertiser/report/transaction-details/?apiKey=' . $access_key . '&format=JSON&startDate=2017-07-14&endDate=2017-07-14';*/
-	
+			
+			//get json from server
 			$pepper_data = file_get_contents($pepper_url);
+
+			//decode it
 			$pepper_json=json_decode($pepper_data, true);		
 			//var_dump($pepper_json);
 			$publisher_Array=array();
 		
+		  //create a publisher array of all publisher ids - this is used as a primary key to associate the terms (Example: "Revised $30 Offer") with publisher ids
 			for($i=0; $i< count($pepper_json['data']); $i++){
 					$publisher_Array[]=$pepper_json['data'][$i]["publisher_id"];
 			}
 
-			echo "Pepper JSON";
+			echo "Pepper JSON - original data";
 
 			echo "<pre>";
 				var_dump($pepper_json);
 			echo "</pre>";
 	
 
-			//GET Terms based on publisher ids
+			//GET Terms based on publisher ids. Example Term would be: "Revised $30 Offer"
 			$term_url ='https://api.pepperjamnetwork.com/20120402/advertiser/publisher/?apiKey=' . $access_key . '&format=JSON&id=' . implode(",",$publisher_Array) ;
 			$term_data = file_get_contents($term_url);
 		
@@ -48,27 +54,36 @@
 				var_dump($term_json);
 			echo "</pre>";
 		
-			$id_Array=array();
-			$term_Array=array();
+			$name_Array=array();//term name array
+			$term_Array=array();//This array will carry the final data for the term name that is associated with the id
 
+			/*Here we are creating a name array that for each element has an array index (string) of a unique publisher id and a term name as the value (Example: Revised $30 Offer)  - duplicate instances of publisher id will be overwritten, but it doesn't matter because they all have the same term*/
 			for($l=0; $l< count($term_json['data']); $l++){
-					$id_Array[$term_json['data'][$l]['id']]=$term_json['data'][$l]["term"][0]["name"];	
+					$name_Array[$term_json['data'][$l]['id']]=$term_json['data'][$l]["term"][0]["name"];	
+					
+					//Example:   $name_Array[123247] = "Revised $30 Offer"
 			}
 		
 			for($j=0; $j< count($pepper_json['data']); $j++){
-					//
-					$term_Array[$j]['id']=$publisher_Array[$j];
+					//we create a term array which is a multidimensional array that contains a name and id for each unique publisher
+					$term_Array[$j]['id']=$publisher_Array[$j];//the id value with be the publisher_id
 					
-					$term_Array[$j]['name'] = $id_Array[$term_Array[$j]['id']];
+					// Example:  $term_Array[0]['id'] = "123247"
+					
+					$term_Array[$j]['name'] = $name_Array[$term_Array[$j]['id']]; //the name value will be the value found START HERE
+
+					// Example:  $term_Array[0]['name'] = $name_Array[$term_Array[0]['id']] <- Value of this will be something like "Revised $30 Offer"
+
+					//If there is no term name, give it the "$30 Flat" default value
 					if (!isset($term_Array[$j]['name'])){
 						$term_Array[$j]['name']="$30 Flat";	
 					}
 			}
 
-			echo "Id Array";
+			echo "Name Array";
 			
 			echo "<pre>";
-				var_dump($id_Array);
+				var_dump($name_Array);
 			echo "</pre>";
 
 			echo "Term Array";
@@ -76,10 +91,11 @@
 			echo "<pre>";
 				var_dump($term_Array);
 			echo "</pre>";
-
+			//number of rows in the spreadsheet
 			$numRows=count($pepper_json['data']);
-			$customerArray=array();
+			$customerArray=array();//The final array.  It's data will be added to the CSV
 
+			//These are the columns in the eventual spreadsheet
 			for($k=0; $k < $numRows; $k++){
 				$customerArray[$k][0] = $pepper_json['data'][$k]["transaction_id"];
 				$customerArray[$k][1] = $pepper_json['data'][$k]["publisher_id"];
@@ -105,14 +121,18 @@
 
 		function outputCSV($data) {
 			  $output = fopen("C:/Users/petej/Google Drive/daily.csv", "w");
-			  foreach ($data as $row)
-				fputcsv($output, $row); // here you can change delimiter/enclosure
-			  fclose($output);
-			}
+			  foreach ($data as $row){
+					fputcsv($output, $row); // here you can change delimiter/enclosure
+			  	fclose($output);
+				}
+		}
 
 			outputCSV($customerArray);
 //Pepperjam END
+
 /*
+Original Google Sheets API direct implementation.  Couldn't do this because of OAUTH 2.0
+
 define('APPLICATION_NAME', 'Google Sheets API PHP Quickstart');
 define('CREDENTIALS_PATH', '~/.credentials/sheets.googleapis.com-php-quickstart.json');
 define('CLIENT_SECRET_PATH', __DIR__ . '/client_secret.json');
